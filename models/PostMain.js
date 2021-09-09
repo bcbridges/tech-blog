@@ -1,4 +1,4 @@
-const { Model, DataTypes } = required("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
@@ -24,7 +24,7 @@ PostMain.init(
       allowNull: false,
     },
     post_body: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: false,
     },
   },
