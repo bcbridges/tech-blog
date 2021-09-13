@@ -9,4 +9,8 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
+router.get("/dashboard", async (req, res) => {
+  res.render("dashboard");
+});
+
 module.exports = router;

@@ -2,11 +2,11 @@ if (window.location.pathname == "/") {
   //EVENT FOR LOGIN BUTTON CLICK
   document.querySelector("button").addEventListener("click", async (e) => {
     e.preventDefault();
-    const email = document.querySelector('input[name="emailField"]').value;
-    const password = document.querySelector('input[name="passField]').value;
+    const email = document.querySelector("#emailField").value;
+    const password = document.querySelector("#passField").value;
     const body = { email, password };
 
-    let response = fetch("/api/user/login", {
+    let response = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify(body),
       headers: {
@@ -15,6 +15,8 @@ if (window.location.pathname == "/") {
     });
 
     if (response.ok) {
+      console.log("RETURNED ON PUBLIC SIDE");
+      document.location.replace("/dashboard");
     } else {
       console.log(response);
     }

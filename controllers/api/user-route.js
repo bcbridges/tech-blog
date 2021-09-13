@@ -10,25 +10,29 @@ const {
 
 router.post("/login", async (req, res) => {
   try {
-    const userData = User.findAll({
+    const userData = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
     if (!userData) {
-      return res.status(400);
+      return res.status(400).json("THERE IS NO USER");
     }
 
-    const validPass = await userData.checkPassword(req.body.password);
+    const validPass = await bcrypt.compare(
+      req.body.password,
+      userData.password
+    );
 
+    console.log(validPass);
     if (!validPass) {
-      return res.status(400);
+      return res.status(400).json("INCORRECT PASSWORD");
     }
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.status(200);
+      return res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
@@ -69,8 +73,11 @@ router.post("/new", async (req, res) => {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
       });
-      console.log(newUser);
-      return res.status(200).json(newUser);
+
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        return res.status(200).json(newUser);
+      });
     }
   } catch (err) {
     console.log("This is the catch clause in /new");
