@@ -49,7 +49,7 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.email = await newUserData.toLowerCase();
+        newUserData.email = await newUserData.email.toLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 15);
         return newUserData;
       },
