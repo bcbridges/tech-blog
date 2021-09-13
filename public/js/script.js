@@ -15,7 +15,6 @@ if (window.location.pathname == "/") {
     });
 
     if (response.ok) {
-      console.log("RETURNED ON PUBLIC SIDE");
       document.location.replace("/dashboard");
     } else {
       console.log(response);
