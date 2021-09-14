@@ -32,6 +32,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.currentUser = userData.user_id;
       return res.status(200).json(userData);
     });
   } catch (err) {
@@ -76,6 +77,7 @@ router.post("/new", async (req, res) => {
 
       req.session.save(() => {
         req.session.loggedIn = true;
+        req.session.currentUser = newUser.user_id;
         return res.status(200).json(newUser);
       });
     }

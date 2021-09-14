@@ -1,0 +1,10 @@
+<h1>THIS IS THE NEW POST PAGE</h1>
+<input type="text" id="post_title" placeholder="Post Subject">
+<Textarea id="post_body" placeholder="Post Body"></Textarea>
+<select name="tagList" id="tagList">
+{{#each tags as |tag|}}
+{{> taglist}}
+{{/each}}
+</select>
+<button id="createBtn">Create</button>
+<button id="cancelBtn">Cancel</button>

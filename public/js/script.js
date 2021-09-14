@@ -66,3 +66,49 @@ if (window.location.pathname == "/signup") {
       }
     });
 }
+
+if (document.location.pathname == "/dashboard") {
+  document.querySelector("#newPostBtn").addEventListener("click", () => {
+    document.location.replace("/NewPost");
+  });
+}
+
+if (document.location.pathname == "/NewPost") {
+  document.querySelector("#cancelBtn").addEventListener("click", () => {
+    document.location.replace("/dashboard");
+  });
+
+  document.querySelector("#createBtn").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    // GET USER INPUT POST TITLE AND BODY
+    let post_title = document.querySelector("#post_title").value.trim();
+    let post_body = document.querySelector("#post_body").value.trim();
+    let post_tag = document.querySelector('select[id="tagList"]').value;
+
+    // MAKE SURE BOTH ARE FILLED IN
+    if (!post_title || !post_body) {
+      return window.alert(
+        "Please make sure to fill in a title and description of your post."
+      );
+    }
+
+    let body = { post_title, post_body, post_tag };
+
+    let response = await fetch("/api/post", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      window.alert("Post was created.");
+      document.location.replace("/dashboard");
+    } else {
+      window.alert("Error creating post.");
+      document.location.replace("/NewPost");
+    }
+  });
+}
