@@ -74,6 +74,14 @@ if (document.location.pathname == "/dashboard") {
   document.querySelector("#newPostBtn").addEventListener("click", () => {
     document.location.replace("/NewPost");
   });
+
+  // SELECT ALL COMMENT BUTTONS AND LOOP THROUGH TO ADD EVENT LISTENER TO EACH
+  let commentBtns = document.querySelectorAll(".commentBtn");
+  commentBtns.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      document.location.replace(`/dashboard/comments/${e.target.value}`);
+    });
+  });
 }
 
 if (document.location.pathname == "/NewPost") {
@@ -115,21 +123,16 @@ if (document.location.pathname == "/NewPost") {
     }
   });
 }
-
 // IF THE USER IS NOT ON THE LOGIN OR SIGNUP PAGE, SET THE LOGOUT HANDLER
 
 // FIX - DOES NOT WORK - KEEP AT BOTTOM OF JS FILE UNTIL FIXED
-if (
-  !(window.location.pathname == "") ||
-  !(window.location.pathname == "/signup")
-) {
-  document.querySelector("#logoutBtn").addEventListener("click", async () => {
-    let response = await fetch("/logout");
 
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      window.alert("Failed to Logout");
-    }
-  });
-}
+document.querySelector("#logoutBtn").addEventListener("click", async () => {
+  let response = await fetch("/logout");
+
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    window.alert("Failed to Logout");
+  }
+});

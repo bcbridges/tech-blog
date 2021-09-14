@@ -1,0 +1,16 @@
+<h1>THIS IS THE COMMENTS</h1>
+<button id="logoutBtn">Logout</button>
+<a href="/dashboard">Back to Dashboard</a>
+
+<article class="card">
+  <h3 class="card-title">{{post.0.post_title}}</h3>
+  <h6 class="card-subtitle">Posted by: {{post.0.user.username}}</h6>
+  <p class="card_subtitle">Posted: {{post.0.createdAt}} </p>
+  <h4 class="card-text">{{post.0.post_body}}</h4>
+</article>
+<br />
+<div>
+    {{#each post.0.post_comments as |comment|}}
+    {{> post-comments}}
+    {{/each}}
+</div>
