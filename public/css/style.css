@@ -4,172 +4,28 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
-header {
-  position: absolute;
-  width: 90vw;
-  height: 108px;
-  left: 47px;
-  top: 16px;
-
-  font-size: 72px;
-  line-height: 81px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #000000;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-/* BELOW IS STYLING FOR COMPUTER IMAGE*/
-.compbackground {
-  position: absolute;
-  width: 70vw;
-  height: 90vh;
-  left: -18vw;
-  top: 12vh;
-
-  background: #c4c4c4;
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 20px;
-}
-
-.compbase1 {
-  position: absolute;
-  width: 43vw;
-  height: 28px;
-  left: 82px;
-  top: 928px;
-  background: #f8eee4;
-}
-
-.compbase2 {
-  position: absolute;
-  width: 594px;
-  height: 21px;
-  left: 200px;
-  top: 907px;
-  background: #f8eee4;
-}
-
-.compbase3 {
-  position: absolute;
-  width: 471px;
-  height: 21px;
-  left: 262px;
-  top: 886px;
-
-  background: #f8eee4;
-}
-
-.compbase4 {
-  position: absolute;
-  width: 542px;
-  height: 101px;
-  left: 227px;
-  top: 785px;
-
-  background: #f8eee4;
-}
-
-.compbase5 {
-  position: absolute;
-  width: 732px;
-  height: 50px;
-  left: 132px;
-  top: 785px;
-
-  background: #f8eee4;
-}
-
-.compscreen1 {
-  position: absolute;
-  width: 880px;
-  height: 617px;
-  left: 58px;
-  top: 168px;
-
-  background: #f2eae2;
-  border: 2px solid #c5bfba;
-  border-radius: 20px;
-}
-
-.compscreen2 {
-  position: absolute;
-  width: 722px;
-  height: 502px;
-  left: 142px;
-  top: 226px;
-
-  background: #717171;
-  border: 2px solid #000000;
-  border-radius: 5px;
-}
-
-/*BELOW IS STYLING FOR FLOPPY*/
-
-.floppybase {
-  position: absolute;
-  width: 380px;
-  height: 350px;
-  left: 1026px;
-  top: 124px;
-
-  background: #000000;
-  border-radius: 20px;
-}
-
-.floppytext1 {
-  position: absolute;
-  width: 340px;
-  height: 199px;
-  left: 1046px;
-  top: 252px;
-
-  background: #f1f1f1;
-  border-radius: 20px;
-}
-
-.floppytext2 {
-  position: absolute;
-  width: 340px;
-  height: 50px;
-  left: 1046px;
-  top: 252px;
-
-  background: #e72828;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.floppydeco1 {
-  position: absolute;
-  width: 220px;
-  height: 100px;
-  left: 1097px;
-  top: 124px;
-
-  background: #c4c4c4;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.floppydeco2 {
-  position: absolute;
-  width: 40px;
-  height: 70px;
-  left: 1244px;
-  top: 139px;
-
-  background: #000000;
+a:hover {
+  color: white;
 }
 
 footer {
   position: absolute;
-  width: 100%;
-  height: 8vh;
-  top: 958px;
+  bottom: 0;
+}
 
-  background: #ffffff;
-  border-top: 0.5vh solid #000000;
+#aboutSection {
+  height: fit-content;
+}
+
+@media screen and (max-width: 1200px) {
+  .computer {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
 }

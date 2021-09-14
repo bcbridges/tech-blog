@@ -1,5 +1,61 @@
-<h1>THIS IS THE LOGIN PAGE.</h1>
-<input type="email" id="emailField" placeholder="email" />
-<input type="text" id="passField" placeholder="password" />
-<button>-></button>
-<a href="/signup">Sign up for R.A.M.</a>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Welcome to the Tech Blog</span>
+  </div>
+</nav>
+<main class="row my-1">
+  <section class="col-xl-6 col-md-12">
+    <div class="input-group my-2">
+      <span class="input-group-text" id="email-input">Email</span>
+      <input
+        type="email"
+        id="emailField"
+        placeholder="email"
+        class="form-control"
+        aria-describedby="email-input"
+      />
+    </div>
+
+    <div class="input-group my-2">
+      <span class="input-group-text" id="password-input">Password</span>
+      <input
+        type="text"
+        id="passField"
+        placeholder="password"
+        class="form-control"
+        aria-describedby="password-input"
+      />
+    </div>
+    <div class="row justify-content-center">
+      <button class="btn btn-secondary btn-lg col-8 my-2">Sign In</button>
+      <button class="btn btn-secondary btn-lg col-8 my-2">
+        <a href="/signup">Create a new account.</a></button>
+    </div>
+    <img
+      src="/assets/Computer.PNG"
+      alt="Computer Photo"
+      id="computerImg"
+      class="col-12 computer"
+    />
+    <img src="/assets/Table.PNG" alt="Table" class="col-12 computer" />
+  </section>
+
+  <section class="col-xl-6 col-md-12 card card-body" id="aboutSection">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam
+    erat velit. Eu mi bibendum neque egestas congue quisque egestas diam in.
+    Eget dolor morbi non arcu risus quis varius quam quisque. Arcu dui vivamus
+    arcu felis bibendum ut tristique. Turpis egestas pretium aenean pharetra
+    magna ac. Id venenatis a condimentum vitae sapien pellentesque habitant
+    morbi tristique. Tempus quam pellentesque nec nam. Tristique senectus et
+    netus et malesuada. Turpis tincidunt id aliquet risus feugiat in ante metus.
+    Aliquet enim tortor at auctor urna nunc id cursus metus. Porta lorem mollis
+    aliquam ut porttitor leo. A iaculis at erat pellentesque. Lacus suspendisse
+    faucibus interdum posuere lorem. Senectus et netus et malesuada fames ac.
+    Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt.
+    Varius duis at consectetur lorem donec massa sapien faucibus et. Vulputate
+    sapien nec sagittis aliquam malesuada bibendum arcu.
+  </section>
+</main>
+
+<footer class="col-12 input-group-text py-2"> This is the footer</footer>
