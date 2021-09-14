@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { User, PostMain, PostTag, PostComment } = require("../models");
+const withAuth = require("../utils/helpers");
 
 // FINDS ALL POSTS AND SORTS THEM NEWEST ON TOP
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   let allPosts = await PostMain.findAll({
     include: [{ model: User }],
     order: [["createdAt", "DESC"]],
@@ -13,7 +14,7 @@ router.get("/", async (req, res) => {
   res.render("dashboard", { posts });
 });
 
-router.get("/comments/:id", async (req, res) => {
+router.get("/comments/:id", withAuth, async (req, res) => {
   let onePost = await PostMain.findAll({
     where: {
       post_id: req.params.id,

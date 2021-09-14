@@ -7,8 +7,9 @@ const {
   PostTag,
   PostComment,
 } = require("../../models");
+const withAuth = require("../../utils/helpers");
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     console.log(req.body.post_tag);
 
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/newcomment", async (req, res) => {
+router.post("/newcomment", withAuth, async (req, res) => {
   try {
     await PostComment.create({
       post_id: req.body.post_id,
@@ -46,7 +47,7 @@ router.post("/newcomment", async (req, res) => {
   }
 });
 
-router.delete("/deletepost/:id", async (req, res) => {
+router.delete("/deletepost/:id", withAuth, async (req, res) => {
   try {
     PostMain.destroy({
       where: {
@@ -59,7 +60,7 @@ router.delete("/deletepost/:id", async (req, res) => {
   }
 });
 
-router.put("/editpost", (req, res) => {
+router.put("/editpost", withAuth, (req, res) => {
   PostMain.update(
     {
       post_title: req.body.post_title,

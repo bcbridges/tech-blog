@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, TagMain, PostMain } = require("../models");
+const withAuth = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
   res.render("login");
@@ -9,7 +10,7 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
-router.get("/NewPost", async (req, res) => {
+router.get("/NewPost", withAuth, async (req, res) => {
   let currentTags = await TagMain.findAll();
   let tags = currentTags.map((tag) => tag.get({ plain: true }));
 
@@ -27,7 +28,7 @@ router.get("/logout", async (req, res) => {
   }
 });
 
-router.get("/myposts", async (req, res) => {
+router.get("/myposts", withAuth, async (req, res) => {
   let userPosts = await PostMain.findAll({
     where: {
       creator_id: req.session.currentUser,
@@ -38,7 +39,7 @@ router.get("/myposts", async (req, res) => {
   res.render("myposts", { posts });
 });
 
-router.get("/editpost/:id", async (req, res) => {
+router.get("/editpost/:id", withAuth, async (req, res) => {
   try {
     let posts = await PostMain.findAll({
       where: {
