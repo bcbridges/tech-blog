@@ -9,10 +9,6 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
-router.get("/dashboard", async (req, res) => {
-  res.render("dashboard");
-});
-
 router.get("/NewPost", async (req, res) => {
   let currentTags = await TagMain.findAll();
   let tags = currentTags.map((tag) => tag.get({ plain: true }));

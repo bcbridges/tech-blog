@@ -2,3 +2,7 @@
 <button id="newPostBtn">Create a new post</button>
 
 <button id="logoutBtn">Logout</button>
+
+{{#each posts as |post|}}
+{{> dashboard-posts}}
+{{/each}}
