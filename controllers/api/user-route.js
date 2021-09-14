@@ -20,10 +20,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).json("THERE IS NO USER");
     }
 
-    const validPass = await bcrypt.compare(
-      req.body.password,
-      userData.password
-    );
+    const validPass = bcrypt.compare(req.body.password, userData.password);
 
     console.log(validPass);
     if (!validPass) {

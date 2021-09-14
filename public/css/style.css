@@ -16,10 +16,19 @@ a:hover {
 footer {
   position: absolute;
   bottom: 0;
+  color: black;
+}
+
+.footerEmail {
+  color: black;
+}
+.footerEmail:hover {
+  color: red;
 }
 
 #aboutSection {
   height: fit-content;
+  font-size: large;
 }
 
 @media screen and (max-width: 1200px) {
