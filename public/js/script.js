@@ -1,3 +1,4 @@
+// IF THE USER IS ON
 if (window.location.pathname == "/") {
   //EVENT FOR LOGIN BUTTON CLICK
   document.querySelector("button").addEventListener("click", async (e) => {
@@ -22,6 +23,7 @@ if (window.location.pathname == "/") {
   });
 }
 
+// IF THE USER IS ON THE SIGNUP PAGE, USE THE FOLLOWING
 if (window.location.pathname == "/signup") {
   //EVENT FOR SIGN UP BUTTON
   document
@@ -67,6 +69,7 @@ if (window.location.pathname == "/signup") {
     });
 }
 
+// IF THE USER IS ON THE DASHBOARD, SETUP THE FOLLOWING
 if (document.location.pathname == "/dashboard") {
   document.querySelector("#newPostBtn").addEventListener("click", () => {
     document.location.replace("/NewPost");
@@ -109,6 +112,24 @@ if (document.location.pathname == "/NewPost") {
     } else {
       window.alert("Error creating post.");
       document.location.replace("/NewPost");
+    }
+  });
+}
+
+// IF THE USER IS NOT ON THE LOGIN OR SIGNUP PAGE, SET THE LOGOUT HANDLER
+
+// FIX - DOES NOT WORK - KEEP AT BOTTOM OF JS FILE UNTIL FIXED
+if (
+  !(window.location.pathname == "") ||
+  !(window.location.pathname == "/signup")
+) {
+  document.querySelector("#logoutBtn").addEventListener("click", async () => {
+    let response = await fetch("/logout");
+
+    if (response.ok) {
+      document.location.replace("/");
+    } else {
+      window.alert("Failed to Logout");
     }
   });
 }
