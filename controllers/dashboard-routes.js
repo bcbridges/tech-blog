@@ -28,7 +28,7 @@ router.get("/comments/:id", async (req, res) => {
   });
 
   let post = onePost.map((post) => post.get({ plain: true }));
-  console.log(post[0]);
+  console.log(post);
   return res.render("comments", { post });
 });
 

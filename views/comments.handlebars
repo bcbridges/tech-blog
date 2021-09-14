@@ -2,7 +2,7 @@
 <button id="logoutBtn">Logout</button>
 <a href="/dashboard">Back to Dashboard</a>
 
-<article class="card">
+<article class="card" id="mainPost" value={{post.0.post_id}}>
   <h3 class="card-title">{{post.0.post_title}}</h3>
   <h6 class="card-subtitle">Posted by: {{post.0.user.username}}</h6>
   <p class="card_subtitle">Posted: {{post.0.createdAt}} </p>
@@ -14,3 +14,7 @@
     {{> post-comments}}
     {{/each}}
 </div>
+<input type="text" id="newCommentText" placeholder="What are your thoughts?">
+<button id="newCommentBtn">Add Comment</button>
+
+<script src="/js/comments.js"></script>
