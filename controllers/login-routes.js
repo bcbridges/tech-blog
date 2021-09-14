@@ -38,4 +38,25 @@ router.get("/myposts", async (req, res) => {
   res.render("myposts", { posts });
 });
 
+router.get("/editpost/:id", async (req, res) => {
+  try {
+    let posts = await PostMain.findAll({
+      where: {
+        post_id: req.params.id,
+      },
+    });
+
+    let post = posts.map((post) => post.get({ plain: true }));
+    console.log(post);
+    if (post[0].creator_id != req.session.currentUser) {
+      return res.status(500).json("Access denied to edit post.");
+    }
+    res.status(200);
+    res.render("editpost", post[0]);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

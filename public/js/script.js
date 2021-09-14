@@ -141,6 +141,34 @@ if (document.location.pathname == "/myposts") {
       }
     });
   });
+
+  let editsBtns = document.querySelectorAll("#editBtn");
+  editsBtns.forEach((button) => {
+    button.addEventListener("click", async (e) => {
+      fetch(`/api/post/editpost/${e.target.value}`);
+    });
+  });
+}
+
+if (document.location.pathname.startsWith("/editpost")) {
+  document.querySelector("#updateBtn").addEventListener("click", async (e) => {
+    let post_title = document.querySelector("#post_title").value;
+    let post_body = document.querySelector("#post_body").value;
+    let post_id = document.location.pathname.charAt(10);
+
+    let body = { post_title, post_body, post_id };
+
+    let response = await fetch("/api/post/editpost", {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      document.location.replace("/myposts");
+    }
+  });
 }
 
 // IF THE USER IS NOT ON THE LOGIN OR SIGNUP PAGE, SET THE LOGOUT HANDLER

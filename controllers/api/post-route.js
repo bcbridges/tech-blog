@@ -59,4 +59,20 @@ router.delete("/deletepost/:id", async (req, res) => {
   }
 });
 
+router.put("/editpost", (req, res) => {
+  PostMain.update(
+    {
+      post_title: req.body.post_title,
+      post_body: req.body.post_body,
+    },
+    {
+      where: {
+        post_id: req.body.post_id,
+      },
+    }
+  );
+
+  res.status(200).json("Post was created.");
+});
+
 module.exports = router;
