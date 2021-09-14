@@ -70,7 +70,10 @@ if (window.location.pathname == "/signup") {
 }
 
 // IF THE USER IS ON THE DASHBOARD, SETUP THE FOLLOWING
-if (document.location.pathname == "/dashboard") {
+if (
+  document.location.pathname == "/dashboard" ||
+  document.location.pathname == "/myposts"
+) {
   document.querySelector("#newPostBtn").addEventListener("click", () => {
     document.location.replace("/NewPost");
   });
@@ -123,8 +126,24 @@ if (document.location.pathname == "/NewPost") {
     }
   });
 }
-// IF THE USER IS NOT ON THE LOGIN OR SIGNUP PAGE, SET THE LOGOUT HANDLER
 
+if (document.location.pathname == "/myposts") {
+  let deleteBtns = document.querySelectorAll("#deleteBtn");
+  deleteBtns.forEach((button) => {
+    button.addEventListener("click", async (e) => {
+      let deleteConfirm = window.confirm(
+        "Click 'Ok' to confirm that you want to delete the post."
+      );
+      if (deleteConfirm) {
+        fetch(`api/post/deletepost/${e.target.value}`, {
+          method: "DELETE",
+        }).then(document.location.reload());
+      }
+    });
+  });
+}
+
+// IF THE USER IS NOT ON THE LOGIN OR SIGNUP PAGE, SET THE LOGOUT HANDLER
 // FIX - DOES NOT WORK - KEEP AT BOTTOM OF JS FILE UNTIL FIXED
 document.querySelector("#logoutBtn").addEventListener("click", async () => {
   let response = await fetch("/logout");

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, TagMain } = require("../models");
+const { User, TagMain, PostMain } = require("../models");
 
 router.get("/", async (req, res) => {
   res.render("login");
@@ -25,6 +25,17 @@ router.get("/logout", async (req, res) => {
   } else {
     res.status(404).end();
   }
+});
+
+router.get("/myposts", async (req, res) => {
+  let userPosts = await PostMain.findAll({
+    where: {
+      creator_id: req.session.currentUser,
+    },
+  });
+
+  let posts = userPosts.map((post) => post.get({ plain: true }));
+  res.render("myposts", { posts });
 });
 
 module.exports = router;

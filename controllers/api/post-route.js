@@ -46,4 +46,17 @@ router.post("/newcomment", async (req, res) => {
   }
 });
 
+router.delete("/deletepost/:id", async (req, res) => {
+  try {
+    PostMain.destroy({
+      where: {
+        post_id: req.params.id,
+      },
+    });
+    res.status(200).json("Post was deleted.");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
