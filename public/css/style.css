@@ -30,6 +30,10 @@ footer {
   font-size: large;
 }
 
+#tagList {
+  display: block;
+}
+
 @media screen and (max-width: 1200px) {
   .computer {
     width: 80%;

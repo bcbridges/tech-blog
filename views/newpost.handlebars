@@ -1,11 +1,26 @@
-<h1>THIS IS THE NEW POST PAGE</h1>
-<button id="logoutBtn">Logout</button>
-<input type="text" id="post_title" placeholder="Post Subject">
-<Textarea id="post_body" placeholder="Post Body"></Textarea>
-<select name="tagList" id="tagList">
-{{#each tags as |tag|}}
-{{> taglist}}
-{{/each}}
-</select>
-<button id="createBtn">Create</button>
-<button id="cancelBtn">Cancel</button>
+<h1>What's on your mind?</h1>
+<div>
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control form-control-lg" id="post_title" placeholder="Post Subject">
+</div>
+
+<div>
+    <label class="form-label">Post</label>
+    <Textarea id="post_body" class="form-control" placeholder="Post Body" rows="5"></Textarea>
+</div>
+
+<div class="my-2">
+    <label class="form-label">Post Tag</label>
+    <select class="btn btn-success" name="tagList" id="tagList">
+    {{#each tags as |tag|}}
+    {{> taglist}}
+    {{/each}}
+    </select>
+</div>
+
+
+<div class="justify-content-center">
+<button class="btn btn-secondary col-3" id="createBtn">Create</button>
+<button class="btn btn-secondary col-3" id="cancelBtn">Cancel</button>
+<button class="btn btn-secondary col-3" id="logoutBtn">Logout</button>
+</div>
