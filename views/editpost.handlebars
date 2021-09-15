@@ -1,6 +1,26 @@
-<h1>THIS IS THE EDIT POST PAGE</h1>
-<button id="logoutBtn">Logout</button>
-<input type="text" id="post_title" value="{{post_title}}" />
-<Textarea id="post_body">{{post_body}}</Textarea>
-<button id="updateBtn">Update</button>
-<a href="/myposts"><button id="cancelBtn">Cancel</button></a>
+<button class="btn btn-secondary col-3" id="logoutBtn">Logout</button>
+
+<div>
+  <label class="form-label"><h2>Title</h2></label>
+  <input
+    class="form-control"
+    type="text"
+    id="post_title"
+    value="{{post_title}}"
+  />
+</div>
+<div>
+  <label class="form-label"><h2>Body</h2></label>
+  <Textarea
+    class="form-control"
+    id="post_body"
+    rows="5"
+  >{{post_body}}</Textarea>
+</div>
+
+<div class="row justify-content-around my-3">
+  <button class="btn btn-secondary col-4" id="updateBtn">Update</button>
+  <button class="btn btn-secondary col-4" id="cancelBtn"><a
+      href="/myposts"
+    >Cancel</a></button>
+</div>
