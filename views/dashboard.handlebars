@@ -1,9 +1,16 @@
-<h1>THIS IS THE DASHBOARD</h1>
-<button id="newPostBtn">Create a new post</button>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+<h1>Welcome back {{posts.0.user.first_name}}</h1>
+  </div>
+</nav>
 
-<button id="logoutBtn">Logout</button>
+<div class="row justify-content-around">
+<button id="newPostBtn" class="btn btn-secondary btn-lg col-3 my-2">Create a new post</button>
 
-<a href="/myposts">My posts</a>
+<button class="btn btn-secondary btn-lg col-3 my-2"><a href="/myposts">My posts</a></button>
+
+<button id="logoutBtn" class="btn btn-secondary btn-lg col-3 my-2">Logout</button>
+</div>
 
 <main class="container">
 {{#each posts as |post|}}

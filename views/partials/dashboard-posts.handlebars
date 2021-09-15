@@ -1,7 +1,12 @@
-<article class="card">
+<article class="card my-3">
   <h3 class="card-title">{{post_title}}</h3>
   <h6 class="card-subtitle">Posted by: {{user.username}}</h6>
   <p class="card_subtitle">Posted: {{createdAt}} </p>
   <h4 class="card-text">{{post_body}}</h4>
-  <button class="commentBtn" value={{post_id}}>Comments</button>
+  <div class="row justify-content-center m-2">
+    <button
+      class="btn btn-outline-secondary btn-sm col-4 commentBtn"
+      value={{post_id}}
+    >Comments</button>
+  </div>
 </article>
