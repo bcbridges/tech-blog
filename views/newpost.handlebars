@@ -1,16 +1,16 @@
 <h1>What's on your mind?</h1>
 <div>
-    <label class="form-label">Title</label>
+    <label class="form-label"><h2>Title</h2></label>
     <input type="text" class="form-control form-control-lg" id="post_title" placeholder="Post Subject">
 </div>
 
 <div>
-    <label class="form-label">Post</label>
+    <label class="form-label"><h2>Body</h2></label>
     <Textarea id="post_body" class="form-control" placeholder="Post Body" rows="5"></Textarea>
 </div>
 
 <div class="my-2">
-    <label class="form-label">Post Tag</label>
+    <label class="form-label"><h3>Post Tag</h3></label>
     <select class="btn btn-success" name="tagList" id="tagList">
     {{#each tags as |tag|}}
     {{> taglist}}
@@ -19,7 +19,7 @@
 </div>
 
 
-<div class="justify-content-center">
+<div class="row justify-content-around my-3">
 <button class="btn btn-secondary col-3" id="createBtn">Create</button>
 <button class="btn btn-secondary col-3" id="cancelBtn">Cancel</button>
 <button class="btn btn-secondary col-3" id="logoutBtn">Logout</button>

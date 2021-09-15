@@ -1,10 +1,12 @@
-<h1>THIS IS MY PERSONAL POSTS</h1>
+<h1>MY POSTS</h1>
 
-<button id="newPostBtn">Create a new post</button>
+<div class="row justify-content-around">
+<button class="btn btn-secondary btn-lg col-3 my-2" id="newPostBtn">Create a new post</button>
 
-<button id="logoutBtn">Logout</button>
+<button class="btn btn-secondary btn-lg col-3 my-2"><a href="/dashboard">Back to Dashboard</a></button>
 
-<a href="/dashboard">Back to Dashboard</a>
+<button id="logoutBtn" class="btn btn-secondary btn-lg col-3 my-2">Logout</button>
+</div>
 
 <main class="container">
 {{#each posts as |post|}}

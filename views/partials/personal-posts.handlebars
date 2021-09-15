@@ -3,10 +3,23 @@
   <h6 class="card-subtitle">Posted by: {{user.username}}</h6>
   <p class="card_subtitle">Posted: {{createdAt}} </p>
   <h4 class="card-text">{{post_body}}</h4>
-  <a href="/editpost/{{post_id}}"><button
+
+  <div class="row justify-content-around">
+    <button
+      class="btn btn-secondary btn-sm col-3 my-2"
       id="editBtn"
       value={{post_id}}
-    >Edit</button></a>
-  <button class="commentBtn" value={{post_id}}>Comments</button>
-  <button id="deleteBtn" value={{post_id}}>Delete</button>
+    >
+      <a href="/editpost/{{post_id}}">Edit</a></button>
+    <button
+      class="commentBtn btn btn-secondary btn-sm col-3 my-2"
+      value={{post_id}}
+    >Comments</button>
+    <button
+      class="btn btn-secondary btn-sm col-3 my-2"
+      id="deleteBtn"
+      value={{post_id}}
+    >Delete</button>
+  </div>
+
 </article>

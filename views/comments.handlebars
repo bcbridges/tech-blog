@@ -1,7 +1,9 @@
-<h1>THIS IS THE COMMENTS</h1>
-<button id="logoutBtn">Logout</button>
-<a href="/dashboard">Back to Dashboard</a>
-<a href="/myposts">Back to My Posts</a>
+<div class="row justify-content-around my-3">
+  <button class="btn btn-secondary col-3"><a href="/dashboard">Back to Dashboard</a></button>
+  <button class="btn btn-secondary col-3"><a href="/myposts">Back to My Posts</a></button>
+  <button class="btn btn-secondary col-3" id="logoutBtn">Logout</button>
+</div>
+
 
 <article class="card" id="mainPost" value={{post.0.post_id}}>
   <h3 class="card-title">{{post.0.post_title}}</h3>
@@ -15,7 +17,12 @@
     {{> post-comments}}
     {{/each}}
 </div>
-<input type="text" id="newCommentText" placeholder="What are your thoughts?">
-<button id="newCommentBtn">Add Comment</button>
+
+<div>
+  <label><h5>Add a new comment:</h5></label>
+</div>  
+  <input type="text" id="newCommentText input-group-text col-8" placeholder="What are your thoughts?">
+  <button id="newCommentBtn">Add Comment</button>
+
 
 <script src="/js/comments.js"></script>
