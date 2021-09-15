@@ -43,8 +43,6 @@ router.get("/comments/:id", withAuth, async (req, res) => {
     });
   });
 
-  console.log(post);
-
   return res.render("comments", { post });
 });
 
