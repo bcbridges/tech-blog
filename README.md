@@ -2,7 +2,7 @@
 
 ## Description
 
-Project Description
+This blog was created to utilize MVC methodology and to practice creating a full stack application; using sequalize, node.js, handlebars, and more.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -24,11 +24,13 @@ Project Description
 
 ## Installation
 
-Application installation
+There is no installation required for this application. You can visit the webpage using [this link](https://fathomless-ridge-27666.herokuapp.com/).
 
 ## Usage
 
-Application Usage
+When you open the webpage, you can click the 'Create a new account' button to access the signup page. Here you can enter in general signup information, and upon completion, you will be redirected to the dashboard.
+
+The dashboard holds all user posts, with the most recent post at the top. From the dashboard, you can create a new post, comment on existing posts, view your previously created posts to edit or delete them, and logout of the application.
 
 ## Credits
 
